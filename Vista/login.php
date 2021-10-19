@@ -55,7 +55,7 @@
                 <br />
 
                 <div>
-                  <h1></i> EIS INFOTEP</h1>
+                  <h1></i> EIS</h1>
 
                 </div>
               </div>

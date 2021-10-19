@@ -16,7 +16,7 @@ foreach($filas as $fila){
     echo "<tr>";
 }
 
-#
+
 /* while($filas=mysqli_fetch_assoc($resultados))
 {
     echo "<tr>";
