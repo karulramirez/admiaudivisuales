@@ -15,6 +15,8 @@ foreach($filas as $fila){
     echo "<td>"; echo $fila['descripcion']; echo "</td>";
     echo "<tr>";
 }
+
+#
 /* while($filas=mysqli_fetch_assoc($resultados))
 {
     echo "<tr>";
