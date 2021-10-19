@@ -20,4 +20,4 @@ define('EXPREG',array(
 
 ?>
 
-<!--!>
+<!--echo!--->
