@@ -10,13 +10,11 @@ class ConexionBD
     public function __construct(){
         $this->conexion = new mysqli(HOST,USER,PASS,gh);
 
-       /* if ($this->conexion->connect_errno) {
-            echo "No se pudo conectar a la gh ".$this->conexion->connect_error;
+       if ($this->conexion->connect_errno) {
+            echo "No se pudo conectar a la base de datos ".$this->conexion->connect_error;
 
             return;
-        }else{
-            echo "conexion establecida -- ";//.TABLAS['user'];
-        }*/
+        }
 
         $this->conexion->set_charset(CHARSET_gh);
     }

@@ -1,18 +1,24 @@
 <?php
 
-include "../DB/Functions_Mysql.php"; 
-$variable = new consultar();
+$variable = new Consultar();
 $sentencia= "SELECT * FROM equipos";
 $filas = $variable->getDates($sentencia) ;
 //$consulta = $filas;
 //$resultados=mysqli_fetch_assoc($sentencia);
 /* var_dump($filas); */
 foreach($filas as $fila){
+
+    $obs = "Ninguna";
+
+    if ($fila['observaciones']) {
+        $obs = $fila['observaciones'];
+    }
+
     echo "<tr>";
     echo "<td>"; echo $fila['sn']; echo "</td>";
     echo "<td>"; echo $fila['ct']; echo "</td>";
     echo "<td>"; echo $fila['modelo']; echo "</td>";
-    echo "<td>"; echo $fila['descripcion']; echo "</td>";
+    echo "<td>"; echo $obs; echo "</td>";
     echo "<tr>";
 }
 

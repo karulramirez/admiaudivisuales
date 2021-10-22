@@ -142,26 +142,30 @@
 								</div>
 								<div class="x_content">
 									<br />
+									<?php
+									#con este include todas las instancias llamadas pueden usar esta funcion
+									include "../DB/Functions_Mysql.php";
+									?>
 									<form method="POST" action="Registo_de_equipo.php" id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
 
 										<div class="item form-group">
 											<label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name"> Serieal del equipo (SN#) <span class="required">*</span>
 											</label>
 											<div class="col-md-6 col-sm-6 ">
-												<input type="number" name="sn" id="first-name" required="required" class="form-control ">
+												<input type="number" name="sn" id="first-name" required class="form-control ">
 											</div>
 										</div>
 										<div class="item form-group">
 											<label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name"> Cargador (CT) <span class="required">*</span>
 											</label>
 											<div class="col-md-6 col-sm-6 ">
-												<input type="text" id="last-name" name="ct" required="required" class="form-control">
+												<input type="text" id="last-name" name="ct" required class="form-control">
 											</div>
 										</div>
 										<div class="item form-group">
 											<label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Modelo</label>
 											<div class="col-md-6 col-sm-6 ">
-												<input id="middle-name" class="form-control" type="text" name="modelo">
+												<input id="middle-name" class="form-control" type="text" required name="modelo">
 											</div>
 										</div>	
 										<div class="item form-group">
@@ -203,7 +207,7 @@
                       </thead>
                       <tbody>
                       <?php
-                       include "../controlador/consultar.php";
+                       include "../controlador/mostrarEquipos.php";
 					  ?>	
                       </tbody>
                     </table>

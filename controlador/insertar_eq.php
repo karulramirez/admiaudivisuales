@@ -1,6 +1,6 @@
 <?php
 
-require "../DB/Functions_Mysql.php";
+#incluir el archivo Funtions_Mysql.php en el body de la vista antes de llamar a este archivo
 
 $equipos = array("sn"=>0,
 "ct"=>"",
@@ -41,10 +41,8 @@ if (count($_POST)==5) {
                 if ($value1=="" and $key1!="observaciones") {
                     $razon = "Algunos campos obligatorios estan vacios";
                     $validar = 2;
-                    break;
-                }
 
-                if ($key1=="sn") {
+                }elseif($key1=="sn") {
 
                     if (preg_match(EXPREG['number'],$value1)) {
                         $sentencia = "SELECT * FROM ".TABLAS['eq']." WHERE sn='".$equipos['sn']."'";
@@ -54,7 +52,6 @@ if (count($_POST)==5) {
                         if ($array) {
                             $validar = 2;
                             $razon = "El serial del equipo ya se encuentra registrado";
-                            break;
                         }else{
                             $validar = 1;
                         }
@@ -117,11 +114,11 @@ if (count($_POST)==5) {
         }*/
 
     }else{
-        echo "no se pudo completar el registro ".$razon;
+        echo "no se pudo completar el registro: ".$razon."<br>";
     }
 
 }else{
-    echo"No se pudo leer los datos".count($_POST);
+    echo"No se pudo leer los datos<br>".count($_POST);
 }
 
 ?>
