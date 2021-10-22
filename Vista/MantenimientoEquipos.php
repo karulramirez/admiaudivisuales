@@ -194,7 +194,7 @@
 										<div class="ln_solid"></div>
 										<div class="item form-group">
 											<div class="col-md-6 col-sm-6 offset-md-3">
-												<button type="submit" class="btn btn-success">Enviar</button>
+												<button type="submit" class="btn btn-success">Confirmar</button>
 											</div>
 										</div>
 
@@ -211,7 +211,7 @@
 											<div class="col-md-6 col-sm-6 offset-md-3">
 												<button type="submit" class="btn btn-success">Buscar</button>
 											</div>
-											<button type="button" class="btn btn-danger">Eliminar</button>
+											
 										</div>
 								</div>
 								
@@ -225,6 +225,7 @@
                           <th>CT</th>
 						  <th>Modleo</th>
                           <th>Start date</th>
+						  <th>reparacion</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -233,7 +234,7 @@
                           <td>System Architect</td>
                           <td>Edinburgh</td>
                           <td>2011/04/25</td>
-                          
+                          <td><button type="button" class="btn btn-danger">Cancelar</button></td>
                         </tr>
                       </tbody>
                     </table>
@@ -285,3 +286,4 @@
 	<script src="../build/js/custom.min.js"></script>
 
 </body></html>
+

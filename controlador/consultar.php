@@ -15,9 +15,11 @@ foreach($filas as $fila){
     echo "<td>"; echo $fila['descripcion']; echo "</td>";
     echo "<tr>";
 }
+
+
 /* while($filas=mysqli_fetch_assoc($resultados))
 {
-    echo "<tr>";
+    echo "<tr>";//
     echo "<td>"; echo $filas['sn']; echo "</td>";
     echo "<td>"; echo $filas['ct']; echo "</td>";
     echo "<td>"; echo $filas['modelo']; echo "</td>";

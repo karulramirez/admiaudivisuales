@@ -30,7 +30,7 @@
 	<!-- Custom Theme Style -->
 	<link href="../build/css/custom.min.css" rel="stylesheet">
 </head>
-
+<!---->
 <body class="nav-md">
 	<div class="container body">
 		<div class="main_container">
@@ -48,7 +48,6 @@
 							<img src="images/infotep.jpg">
 						</div>
 					</div>
-					<!-- /menu profile quick info -->
 
 					<br />
 					<div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
@@ -161,12 +160,7 @@
 												<input type="text" id="first-name" required="required" class="form-control ">
 											</div>
 										</div>
-										<div class="field item form-group">
-                                            <label class="col-form-label col-md-3 col-sm-3  label-align">Hora de la Entrega <span class="required">*</span></label>
-                                            <div class="col-md-6 col-sm-6">
-                                                <input class="form-control" class='time' type="time" name="time" required='required'></div>
-                                        </div>
-
+										
 										<div class="item form-group">
 											<label class="col-form-label col-md-3 col-sm-3 label-align"> Dia de entrega <span class="required">*</span>
 											</label>
@@ -181,19 +175,7 @@
 												</script>
 											</div>
 										</div>
-										<div class="item form-group">
-											<label class="col-form-label col-md-3 col-sm-3 label-align"> Dia de devolucion <span class="required">*</span>
-											</label>
-											<div class="col-md-6 col-sm-6 ">
-												<input id="birthday" class="date-picker form-control" placeholder="dd-mm-yyyy" type="text" required="required" type="text" onfocus="this.type='date'" onmouseover="this.type='date'" onclick="this.type='date'" onblur="this.type='text'" onmouseout="timeFunctionLong(this)">
-												<script>
-													function timeFunctionLong(input) {
-														setTimeout(function() {
-															input.type = 'text';
-														}, 60000);
-													}
-													
-												</script>
+									
 
 										<div class="ln_solid"></div>
 										<div class="item form-group">

@@ -7,12 +7,10 @@ define('gh','gh');
 define('CHARSET_gh','utf8');
 
 
-/* define('TABLAS',array(
-"user" => "ususario ",
-"rol" => "rol",
-"prest"=> "prestamo",
-"deudor"=> "prestatario"
-)); */
+define('TABLAS',array(
+"admin" => "administrador",
+"devolucion" => "devolucion"
+)); 
 
 define('EXPREG',array(
     "email" => "/^([a-zA-Z0-9])+([a-zA-Z0-9\._-])*@([a-zA-Z0-9_-])+([a-zA-Z0-9\._-]+)+$/",
@@ -21,3 +19,4 @@ define('EXPREG',array(
     "alfanumSE"=>"/^([^\s*.]+)+$/"));
 
 ?>
+
