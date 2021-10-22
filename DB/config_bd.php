@@ -8,8 +8,10 @@ define('CHARSET_gh','utf8');
 
 
 define('TABLAS',array(
-"admin" => "administrador",
-"devolucion" => "devolucion"
+"user" => "usuario",
+"eq" => "equipos",
+"mant" => "mantenimiento",
+"pres" => "prestamo"
 )); 
 
 define('EXPREG',array(

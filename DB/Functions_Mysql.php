@@ -67,6 +67,7 @@ class Insertar extends ConexionBD
             $ejecutar = $this->conexion->prepare($insertar);
 
             if ($ejecutar) {
+                echo "Datos registrados";
                 $ejecutar->execute();
             }else{
                 echo "ERROR: No se pudo hacer la insercion debido a inconsistensias en los datos";

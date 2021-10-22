@@ -24,7 +24,7 @@ if (count($_POST)==3) {
 
     if ($login["usuario"]!="" and $login["password"]!="") {
 
-        $consulta = "SELECT * FROM ".TABLAS['admin']." WHERE nombre='".$login['usuario']."' AND clave='".$login['password']."'";
+        $consulta = "SELECT * FROM ".TABLAS['user']." WHERE nombre='".$login['usuario']."' AND clave='".$login['password']."'";
 
         $validar = new Consultar();
 
