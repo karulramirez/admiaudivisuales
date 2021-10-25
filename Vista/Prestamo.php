@@ -142,22 +142,26 @@
 									</ul>
 									<div class="clearfix"></div>
 								</div>
+								<?php
+									#con este include todas las instancias llamadas pueden usar esta funcion
+									require "../DB/Functions_Mysql.php";
+								?>
 								<div class="x_content">
 									<br />
-									<form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+									<form method="POST" action="Prestamo.php" id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
 
 										<div class="item form-group">
 											<label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name"> Cedula <span class="required">*</span>
 											</label>
 											<div class="col-md-6 col-sm-6 ">
-												<input type="text" id="first-name" required="required" class="form-control ">
+												<input type="number" name="cedula" id="first-name" required class="form-control ">
 											</div>
 										</div>
 										<div class="item form-group">
 											<label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name"> Serieal del equipo (SN#) <span class="required">*</span>
 											</label>
 											<div class="col-md-6 col-sm-6 ">
-												<input type="text" id="first-name" required="required" class="form-control ">
+												<input type="number" name="serial" id="first-name" required class="form-control ">
 											</div>
 										</div>
 										
@@ -165,7 +169,7 @@
 											<label class="col-form-label col-md-3 col-sm-3 label-align"> Dia de entrega <span class="required">*</span>
 											</label>
 											<div class="col-md-6 col-sm-6 ">
-												<input id="birthday" class="date-picker form-control" placeholder="dd-mm-yyyy" type="text" required="required" type="text" onfocus="this.type='date'" onmouseover="this.type='date'" onclick="this.type='date'" onblur="this.type='text'" onmouseout="timeFunctionLong(this)">
+												<input id="birthday" name="fecha" class="date-picker form-control" placeholder="yyyy-mm-dd" type="text" required onfocus="this.type='date'" onmouseover="this.type='date'" onclick="this.type='date'" onblur="this.type='text'" onmouseout="timeFunctionLong(this)">
 												<script>
 													function timeFunctionLong(input) {
 														setTimeout(function() {
@@ -181,11 +185,16 @@
 										<div class="item form-group">
 											<div class="col-md-6 col-sm-6 offset-md-3">
 												<button class="btn btn-primary" type="button">Cancel</button>
-												<button type="submit" class="btn btn-success">Confirmar</button>
+												<input type="submit" value="Confirmar" name="enviar" class="btn btn-success">
 											</div>
 										</div>
 
 									</form>
+
+									<?php
+									if (isset($_POST['enviar'])) {include "../Controlador/prestar_eq.php";}
+									?>
+
 								</div>
 							</div>
 						</div>

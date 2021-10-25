@@ -55,10 +55,10 @@ class Insertar extends ConexionBD
         $this->info.="'".$valor."'";
     }
 
-    public function ready(){
+    public function ready($directo=""){
         $ejecutar;
 
-        if ($this->campos!="") {
+        if ($this->campos!="" and $directo=="") {
 
             $insertar="INSERT INTO $this->table ($this->campos) values 
             ($this->info)";
@@ -67,10 +67,22 @@ class Insertar extends ConexionBD
             $ejecutar = $this->conexion->prepare($insertar);
 
             if ($ejecutar) {
-                echo "Datos registrados";
+                echo "Datos registrados ";
                 $ejecutar->execute();
             }else{
-                echo "ERROR: No se pudo hacer la insercion debido a inconsistensias en los datos";
+                echo "ERROR: No se pudo hacer la insercion debido a inconsistensias en los datos<br>";
+               // echo "ERROR: ".$this->conexion->error." : ".$insertar;
+            }
+
+        }else{
+            $ejecutar = $this->conexion->prepare($directo);
+
+            if ($ejecutar) {
+                echo "Datos registrados ";
+                $ejecutar->execute();
+            }else{
+                echo "ERROR: No se pudo hacer la insercion debido a inconsistensias en los datos<br>";
+                //echo "ERROR: ".$this->conexion->error." : ".$directo;
             }
 
         }
