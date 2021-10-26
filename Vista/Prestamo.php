@@ -126,7 +126,10 @@
 
 		
 			
-
+			<?php
+			#con este include todas las instancias llamadas pueden usar esta funcion
+			require "../DB/Functions_Mysql.php";
+			?>
 			<!-- page content -->
 			<div class="right_col" role="main">
 				<div class="">
@@ -142,10 +145,6 @@
 									</ul>
 									<div class="clearfix"></div>
 								</div>
-								<?php
-									#con este include todas las instancias llamadas pueden usar esta funcion
-									require "../DB/Functions_Mysql.php";
-								?>
 								<div class="x_content">
 									<br />
 									<form method="POST" action="Prestamo.php" id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
@@ -246,175 +245,9 @@
 
 
                       <tbody>
-                        <tr>
-                          <td>Tiger Nixon</td>
-                          <td>System Architect</td>
-                          <td>Edinburgh</td>
-                          <td>61</td>
-						  <td>$320hfh</td>
-                          <td>20jgfh</td>
-						  <td>8:00 am</td>
-						  <td>2011/04/25</td>
-						  <td>2011/04/25</td>
-						  <td>2011/06/25</td>
-                          <td><button type="submit" class="btn btn-success">Confirmar</button></td>
-                        </tr>
-                        <tr>
-                          <td>Garrett Winters</td>
-                          <td>Accountant</td>
-                          <td>Tokyo</td>
-                          <td>63</td>
-						  <td>$320hfh</td>
-                          <td>20jgfh</td>
-						  <td>8:00 am</td>
-						  <td>2011/04/25</td>
-						  <td>2011/04/25</td>
-						  <td>2011/06/25</td>
-                          <td><button type="submit" class="btn btn-success">Confirmar</button></td>
-                        </tr>
-                        <tr>
-                          <td>Ashton Cox</td>
-                          <td>Junior Technical Author</td>
-                          <td>San Francisco</td>
-                          <td>66</td>
-                          <td>$320hfh</td>
-                          <td>20jgfh</td>
-						  <td>8:00 am</td>
-						  <td>2011/04/25</td>
-						  <td>2011/04/25</td>
-						  <td>2011/06/25</td>
-                          <td><button type="submit" class="btn btn-success">Confirmar</button></td>
-                        </tr>
-                        <tr>
-                          <td>Cedric Kelly</td>
-                          <td>Senior Javascript Developer</td>
-                          <td>Edinburgh</td>
-                          <td>22</td>
-                          <td>$320hfh</td>
-                          <td>20jgfh</td>
-						  <td>8:00 am</td>
-						  <td>2011/04/25</td>
-						  <td>2011/04/25</td>
-						  <td>2011/06/25</td>
-                          <td><button type="submit" class="btn btn-success">Confirmar</button></td>
-                        </tr>
-                        <tr>
-                          <td>Airi Satou</td>
-                          <td>Accountant</td>
-                          <td>Tokyo</td>
-                          <td>33</td>
-                          <td>$320hfh</td>
-                          <td>20jgfh</td>
-						  <td>8:00 am</td>
-						  <td>2011/04/25</td>
-						  <td>2011/04/25</td>
-						  <td>2011/06/25</td>
-                          <td><button type="submit" class="btn btn-success">Confirmar</button></td>
-                        </tr>
-                        <tr>
-                          <td>Brielle Williamson</td>
-                          <td>Integration Specialist</td>
-                          <td>New York</td>
-                          <td>61</td>
-                          <td>$320hfh</td>
-                          <td>20jgfh</td>
-						  <td>8:00 am</td>
-						  <td>2011/04/25</td>
-						  <td>2011/04/25</td>
-						  <td>2011/06/25</td>
-                          <td><button type="submit" class="btn btn-success">Confirmar</button></td>
-                        </tr>
-                        <tr>
-                          <td>Herrod Chandler</td>
-                          <td>Sales Assistant</td>
-                          <td>San Francisco</td>
-                          <td>59</td>
-						  <td>$320hfh</td>
-                          <td>20jgfh</td>
-						  <td>8:00 am</td>
-						  <td>2011/04/25</td>
-						  <td>2011/04/25</td>
-						  <td>2011/06/25</td>
-                          <td><button type="submit" class="btn btn-success">Confirmar</button></td>
-                        </tr>
-                        <tr>
-                          <td>Rhona Davidson</td>
-                          <td>Integration Specialist</td>
-                          <td>Tokyo</td>
-                          <td>55</td>
-                          <td>$320hfh</td>
-                          <td>20jgfh</td>
-						  <td>8:00 am</td>
-						  <td>2011/04/25</td>
-						  <td>2011/04/25</td>
-						  <td>2011/06/25</td>
-                          <td><button type="submit" class="btn btn-success">Confirmar</button></td>
-                        </tr>
-                        <tr>
-                          <td>Colleen Hurst</td>
-                          <td>Javascript Developer</td>
-                          <td>San Francisco</td>
-                          <td>39</td>
-                          <td>$320hfh</td>
-                          <td>20jgfh</td>
-						  <td>8:00 am</td>
-						  <td>2011/04/25</td>
-						  <td>2011/04/25</td>
-						  <td>2011/06/25</td>
-                          <td><button type="submit" class="btn btn-success">Confirmar</button></td>				
-                        </tr>
-						<tr>
-                          <td>Colleen Hurst</td>
-                          <td>Javascript Developer</td>
-                          <td>San Francisco</td>
-                          <td>39</td>
-                          <td>$320hfh</td>
-                          <td>20jgfh</td>
-						  <td>8:00 am</td>
-						  <td>2011/04/25</td>
-						  <td>2011/04/25</td>
-						  <td>2011/06/25</td>
-                          <td><button type="submit" class="btn btn-success">Confirmar</button></td>				
-                        </tr>
-						<tr>
-                          <td>Colleen Hurst</td>
-                          <td>Javascript Developer</td>
-                          <td>San Francisco</td>
-                          <td>39</td>
-                          <td>$320hfh</td>
-                          <td>20jgfh</td>
-						  <td>8:00 am</td>
-						  <td>2011/04/25</td>
-						  <td>2011/04/25</td>
-						  <td>2011/06/25</td>
-                          <td><button type="submit" class="btn btn-success">Confirmar</button></td>				
-                        </tr>
-						<tr>
-                          <td>Colleen Hurst</td>
-                          <td>Javascript Developer</td>
-                          <td>San Francisco</td>
-                          <td>39</td>
-                          <td>$320hfh</td>
-                          <td>20jgfh</td>
-						  <td>8:00 am</td>
-						  <td>2011/04/25</td>
-						  <td>2011/04/25</td>
-						  <td>2011/06/25</td>
-                          <td><button type="submit" class="btn btn-success">Confirmar</button></td>				
-                        </tr>
-						<tr>
-                          <td>Colleen Hurst</td>
-                          <td>Javascript Developer</td>
-                          <td>San Francisco</td>
-                          <td>39</td>
-                          <td>$320hfh</td>
-                          <td>20jgfh</td>
-						  <td>8:00 am</td>
-						  <td>2011/04/25</td>
-						  <td>2011/04/25</td>
-						  <td>2011/06/25</td>
-                          <td><button type="submit" class="btn btn-success">Confirmar</button></td>				
-                        </tr>
+					  <?php
+                       include "../controlador/mostrar_prestamos.php";
+					  ?>
                   
                       </tbody>
                     </table>

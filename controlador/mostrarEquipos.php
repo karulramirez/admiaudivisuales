@@ -32,3 +32,4 @@ foreach($filas as $fila){
     echo "<td>"; echo $filas['descripcion']; echo "</td>";
     echo "<tr>";
 } */
+?>
