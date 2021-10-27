@@ -199,18 +199,24 @@
 						</div>
 					</div>
 			<!-- /footer content -->
+			<form method="POST" action="Prestamo.php" id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
 			<div class="item form-group">
 			<label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name"> Serieal del equipo (SN#) <span class="required">*</span>
 				</label>
 					<div class="col-md-6 col-sm-6 ">
-						<input type="text" id="first-name" required="required" class="form-control ">
+						<input type="number" id="first-name" name="equipo" required="required" class="form-control ">
 					</div>
 			</div>
 			<div class="item form-group">
 			  <div class="col-md-6 col-sm-6 offset-md-3">
-					<button class="btn btn-primary" type="button">Buscar</button>
+				  <input type="submit" name="buscar" value="Buscar" class="btn btn-primary" type="button">
 				</div>
 			</div>
+			</form>
+			<?php
+			$codBusqueda = ""; 
+			if (isset($_POST['buscar'])) {include "../Controlador/buscar_eq.php";}
+			?>
 			<div class="clearfix"></div>
 
 <div class="row">

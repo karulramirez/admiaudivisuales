@@ -25,7 +25,7 @@ if (count($_POST)==4) {
         foreach ($equipos as $key2 => $value2) {
 
             #echo $key2." : ".$value2." : ".$key1."<br><br>";
-            //echo $value1.": VALOR<br>";
+            #echo $value1.": VALOR<br>";
             
 
             if ($value2==0 or $value2=="") {
@@ -36,23 +36,58 @@ if (count($_POST)==4) {
 
                     if (preg_match(EXPREG['number'],$value1)) {
                         $sentencia ="";
+                        $consulta = new Consultar();
 
                         if ($key1=="cedula") {
-                            $sentencia = "SELECT * FROM ".TABLAS['pres']." WHERE usuario_idUsuario='".$equipos['usuario_idUsuario']."'";
+                            $sentencia = "SELECT * FROM ".TABLAS['pres']." WHERE usuario_idUsuario=".$equipos['usuario_idUsuario']."";
+                            $array = $consulta->getDates($sentencia);
+
+                            if ($array) {
+
+                                foreach ($array as $fila) {
+
+                                    if (!$fila['fechaDevolucion']) {
+                                        $razon = "El usuario ya tiene un equipo prestado";
+                                        $validar = 2;
+                                    }
+                                }
+
+                            }
+
+                            $consulta2 = new Consultar();
+                            $sentencia = "SELECT * FROM ".TABLAS['user']." WHERE idUsuario=".$equipos['usuario_idUsuario']."";
+                            $array2 = $consulta2->getDates($sentencia);
+
+                            if (!$array2) {
+                                $razon = "El usuario no existe";
+                                $validar = 2;
+                            }
+
+                            break;
+
                         }else{
-                            $sentencia = "SELECT * FROM ".TABLAS['pres']." WHERE equipos_sn='".$equipos['equipos_sn']."'";
+                            $sentencia = "SELECT * FROM ".TABLAS['eq']." WHERE sn=".$equipos['equipos_sn']."";
+                            $array = $consulta->getDates($sentencia);
+
+                            if ($array) {
+
+                                foreach ($array as $fila) {
+
+                                    if ($fila['disponible']=="No") {
+                                        $razon = "El equipo no esta disponible";
+                                        $validar = 2;
+                                    }
+                                }
+
+                            }else{
+                                $razon = "El serial del equipo no existe";
+                                $validar = 2;
+                            }
+
+                            break;
+
                         }
 
-                        $consulta = new Consultar();
-                        $array = $consulta->getDates($sentencia);
-                        
-                        if ($array) {
-                            $validar = 2;
-                            $razon = "El equipo ha sido prestado o el usuario ya tiene un equipo en prestamo";
-                            break;
-                        }else{
-                            $validar = 1;
-                        }
                     }else{
                         $razon = "la cedula y el serial solo pueden ser numericos "+$value1;
                         $validar =2;
@@ -64,22 +99,27 @@ if (count($_POST)==4) {
                 }else{
 
                     if ($hoy > $equipos['fechaHoraFinal']) {
-                        echo "La fecha de entrega ya ha pasado";
+                        $razon = "La fecha de entrega ya ha pasado";
                         $validar = 2;
+                        break;
+                    }elseif ($validar==0) {
+                        $validar=1;
                     }
+                    break;
                 }
-                break;
 
                 
             }
 
         }
 
-        if ($validar==2) {
+        if ($validar==2 or $validar==1) {
             break;
         }
 
     }
+
+    #$razon = $validar;
 
     if ($validar==1) {
 
@@ -117,6 +157,10 @@ if (count($_POST)==4) {
         }
 
         $insertar->ready();
+
+        $actualizar = new Update(TABLAS['eq'],'sn',$equipos['equipos_sn']);
+        $actualizar->addVal('disponible','No');
+        $actualizar->ready();
 
         /*$consulta = "SELECT * FROM ".TABLAS['user']." WHERE correo='".$login['correo']."' AND clave='".$login['password']."'";
 

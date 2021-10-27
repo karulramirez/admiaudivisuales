@@ -138,12 +138,13 @@ class Update extends ConexionBD
             $actualizar="UPDATE $this->table SET $this->instruccion WHERE 
             $this->condiccion";
 
-            echo $actualizar;
+            //echo $actualizar;
             
             $ejecutar = $this->conexion->prepare($actualizar);
 
             if ($ejecutar) {
                 $ejecutar->execute();
+                //echo "La instruccion es ".$actualizar;
             }else{
                 echo "ERROR: No se pudo concretar los cambios debido a inconsistensias en los datos";
             }
