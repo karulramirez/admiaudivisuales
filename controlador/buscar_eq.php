@@ -8,22 +8,35 @@ if (count($_POST)==2) {
     foreach ($_POST as $key => $value) {
 
         if ($key=="equipo") {
+            $consulta = new Consultar();
+            $instruccion = "SELECT * FROM ".TABLAS['eq']." WHERE serial='".$value."'";
+            $array = $consulta->getDates($instruccion);
+            
+            if ($array) {
 
-            if (preg_match(EXPREG['number'],$value)) {
-                $consulta = new Consultar();
-                $instruccion = "SELECT * FROM ".TABLAS['pres']." WHERE equipos_sn=".$value."";
-                $array = $consulta->getDates($instruccion);
+                foreach($array as $fila){
 
-                if ($array) {
-                    $codBusqueda = $value;
-                    break;
-                }else{
+                    $consulta2 = new Consultar();
+                    $instruccion2 = "SELECT * FROM ".TABLAS['pres']." WHERE equipos_sn=".$fila['sn']."";
+                    $array2 = $consulta2->getDates($instruccion2);
+
+                    if ($array2) {
+                        $codBusqueda = $fila['sn'];
+                        break;
+                    }
+
+                }
+
+                if ($codBusqueda=="") {
                     $razon = "El equipo no ha sido prestado en ninguna ocasion";
                 }
 
+                break;
+
             }else{
-                $razon = "El serial del equipo debe ser numerico";
+                $razon = "El equipo serial del equipo no existe";
             }
+
         }
 
     }

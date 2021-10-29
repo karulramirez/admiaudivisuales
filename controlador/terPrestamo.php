@@ -1,7 +1,7 @@
 <?php
 
-
-if (count($_POST)==2) {
+$idPres ="";
+if (count($_POST)==3) {
 
     $hoy = date("Y-m-d H:i:s");
 
@@ -10,6 +10,12 @@ if (count($_POST)==2) {
         if ($key=="devuelto") {
             $actualizar = new Update(TABLAS['pres'],'idprestamo',$value);
             $actualizar->addVal('fechaDevolucion',$hoy);
+            $actualizar->ready();
+        }
+
+        if ($key=="equipo") {
+            $actualizar = new Update(TABLAS['eq'],'sn',$value);
+            $actualizar->addVal('disponible','Si');
             $actualizar->ready();
             break;
         }
@@ -22,7 +28,7 @@ if (count($_POST)==2) {
 
 
 if ($atraso=="Si") {
-    header( "refresh:1; Devolucion.php" ); 
+    header( "refresh:1; mora.php" ); 
     die();
 }else{
     header( "refresh:1; url=Prestamo.php" ); 

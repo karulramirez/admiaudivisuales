@@ -153,12 +153,12 @@ class Update extends ConexionBD
 
     }
 
-    public function eliminar(){
+    public function erase(){
         $ejecutar;
 
-        if ($this->instruccion!="") {
+        if ($this->condiccion!="") {
 
-            $actualizar="DELETE $this->table SET $this->instruccion WHERE 
+            $actualizar="DELETE FROM $this->table WHERE 
             $this->condiccion";
 
             echo $actualizar;

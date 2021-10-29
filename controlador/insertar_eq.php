@@ -3,6 +3,7 @@
 #incluir el archivo Funtions_Mysql.php en el body de la vista antes de llamar a este archivo
 
 $equipos = array("sn"=>0,
+"serial"=>"",
 "ct"=>"",
 "modelo"=>"",
 "observaciones"=>"",
@@ -42,23 +43,16 @@ if (count($_POST)==5) {
                     $razon = "Algunos campos obligatorios estan vacios";
                     $validar = 2;
 
-                }elseif($key1=="sn") {
-
-                    if (preg_match(EXPREG['number'],$value1)) {
-                        $sentencia = "SELECT * FROM ".TABLAS['eq']." WHERE sn='".$equipos['sn']."'";
-                        $consulta = new Consultar();
-                        $array = $consulta->getDates($sentencia);
-                        
-                        if ($array) {
-                            $validar = 2;
-                            $razon = "El serial del equipo ya se encuentra registrado";
-                        }else{
-                            $validar = 1;
-                        }
+                }elseif($key1=="serial") {
+                     $sentencia = "SELECT * FROM ".TABLAS['eq']." WHERE serial='".$equipos['serial']."'";
+                     $consulta = new Consultar();
+                     $array = $consulta->getDates($sentencia);
+                     
+                     if ($array) {
+                         $validar = 2;
+                         $razon = "El serial del equipo ya se encuentra registrado";
                     }else{
-                        $razon = "el serial solo puede ser numerico";
-                        $validar =2;
-                        break;
+                        $validar = 1;
                     }
 
                     
@@ -79,6 +73,19 @@ if (count($_POST)==5) {
     if ($validar==1) {
 
         $buscar = new Consultar();
+
+        $info = $buscar->getDates("SELECT MAX(sn)+1 AS Ultimo FROM ".TABLAS['eq']);
+
+        if ($info) {
+            foreach ($info as $llave) {
+                $idEq = $info[0]['Ultimo'];
+    
+            }
+        }else{
+            $idEq = 0;
+        }
+
+        $equipos['sn']=$idEq;
 
         /*$info = $buscar->getDates("SELECT MAX(codUser)+1 AS Ultimo FROM ".TABLAS['user']);
 

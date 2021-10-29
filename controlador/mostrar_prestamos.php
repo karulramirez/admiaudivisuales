@@ -50,9 +50,10 @@ if ($filas) {
                 echo "<td><form method='POST' action='Prestamo.php' id='demo-form2' data-parsley-validate class='form-horizontal form-label-left'>";
                 echo "<input type='submit' value='Confirmar' name='confirmar' class='btn btn-success'>";
                 echo "<input type='hidden' value='".$fila['idprestamo']."' name='devuelto'>";
+                echo "<input type='hidden' value='".$fila['sn']."' name='equipo'>";
                 echo "</form></td>";
             }else{
-                echo "<td></td>";
+                echo "<td>Devuelto</td>";
             }
             echo "<tr>";
         }

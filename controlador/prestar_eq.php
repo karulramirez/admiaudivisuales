@@ -30,58 +30,44 @@ if (count($_POST)==4) {
 
             if ($value2==0 or $value2=="") {
 
-                $equipos[$key2] = $value1;
+                //$equipos[$key2] = $value1;
 
-                if($key1=="cedula" or $key1=="serial") {
+                if($key1=="cedula") {
 
                     if (preg_match(EXPREG['number'],$value1)) {
                         $sentencia ="";
                         $consulta = new Consultar();
 
                         if ($key1=="cedula") {
-                            $sentencia = "SELECT * FROM ".TABLAS['pres']." WHERE usuario_idUsuario=".$equipos['usuario_idUsuario']."";
-                            $array = $consulta->getDates($sentencia);
-
-                            if ($array) {
-
-                                foreach ($array as $fila) {
-
-                                    if (!$fila['fechaDevolucion']) {
-                                        $razon = "El usuario ya tiene un equipo prestado";
-                                        $validar = 2;
-                                    }
-                                }
-
-                            }
 
                             $consulta2 = new Consultar();
-                            $sentencia = "SELECT * FROM ".TABLAS['user']." WHERE idUsuario=".$equipos['usuario_idUsuario']."";
+                            $sentencia = "SELECT * FROM ".TABLAS['user']." WHERE cedula=".$value1."";
                             $array2 = $consulta2->getDates($sentencia);
 
                             if (!$array2) {
                                 $razon = "El usuario no existe";
                                 $validar = 2;
-                            }
-
-                            break;
-
-                        }else{
-                            $sentencia = "SELECT * FROM ".TABLAS['eq']." WHERE sn=".$equipos['equipos_sn']."";
-                            $array = $consulta->getDates($sentencia);
-
-                            if ($array) {
-
-                                foreach ($array as $fila) {
-
-                                    if ($fila['disponible']=="No") {
-                                        $razon = "El equipo no esta disponible";
-                                        $validar = 2;
-                                    }
-                                }
 
                             }else{
-                                $razon = "El serial del equipo no existe";
-                                $validar = 2;
+                                foreach ($array2 as $fila) {
+                                    
+                                    $equipos['usuario_idUsuario']=$fila['idUsuario'];
+                                }
+                                
+                                $sentencia = "SELECT * FROM ".TABLAS['pres']." WHERE usuario_idUsuario=".$equipos['usuario_idUsuario']."";
+                                $array = $consulta->getDates($sentencia);
+
+                                if ($array) {
+                                    foreach ($array as $fila) {
+                                        
+                                        if (!$fila['fechaDevolucion']) {
+                                            $razon = "El usuario ya tiene un equipo prestado";
+                                            $validar = 2;
+                                            break;
+                                        }
+                                        
+                                    }
+                                }
                             }
 
                             break;
@@ -89,14 +75,36 @@ if (count($_POST)==4) {
                         }
 
                     }else{
-                        $razon = "la cedula y el serial solo pueden ser numericos "+$value1;
+                        $razon = "la cedula solo pueden se numerico "+$value1;
                         $validar =2;
                         break;
                     }
 
                     
 
+                }elseif($key1=="serial"){
+
+                    $sentencia = "SELECT * FROM ".TABLAS['eq']." WHERE serial='".$value1."'";
+                    $array = $consulta->getDates($sentencia);
+
+                    if ($array) {
+                        foreach ($array as $fila) {
+
+                            if ($fila['disponible']=="No") {
+                                $razon = "El equipo no esta disponible";
+                                $validar = 2;
+                            }
+                            
+                            $equipos['equipos_sn']=$fila['sn'];
+                        }
+                    }else{
+                        $razon = "El serial del equipo no existe";
+                        $validar = 2;
+                    }
+                    break;
+
                 }else{
+                    $equipos['fechaHoraFinal'] = $value1;
 
                     if ($hoy > $equipos['fechaHoraFinal']) {
                         $razon = "La fecha de entrega ya ha pasado";
