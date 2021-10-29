@@ -75,6 +75,7 @@
 									<ul class="nav child_menu">
 										<li> <a> Reporte de prestamos</a> </li>
 										<li> <a> Reporte de registro equipos </a> </li>
+										<li> <a> Reporte de de usarios </a> </li>
 										<li> <a> Compromiso prestamos de Equipo </a> </li>
 									</ul>
                            
