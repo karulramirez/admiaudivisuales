@@ -59,9 +59,9 @@
                             <ul class="nav side-menu">
                                 <li><a><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
-										<li><a href="Registo_de_equipo.php">Formumario Registo</a></li>	
+										<li><a href="Registro_usuarios.php">Formumario Registo usuarios</a></li>
+										<li><a href="Registo_de_equipo.php">Formumario Registo audiovisuales</a></li>	
 										<li><a href="Prestamo.php">Formumario Prestamo del equipo</a></li>
-										<li><a href="Devolucion.php">Recepcion de equipo</a></li>
 										<li><a href="mora.php">Retraso devolucion de equipo</a></li>
                                     </ul>
                                 </li>
@@ -96,7 +96,7 @@
 									<img src="images/img.jpg" alt="">John Doe
 								</a>
 								<div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
-									<a class="dropdown-item" href="login.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
+									<a class="dropdown-item" href="login.php"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
 								</div>
 							</li>
 
