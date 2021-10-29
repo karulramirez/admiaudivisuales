@@ -20,4 +20,13 @@ if (count($_POST)==2) {
     echo "El numero de valores no corresponde ";
 }
 
+
+if ($atraso=="Si") {
+    header( "refresh:1; Devolucion.php" ); 
+    die();
+}else{
+    header( "refresh:1; url=Prestamo.php" ); 
+    die();
+}
+
 ?>

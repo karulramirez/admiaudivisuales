@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+<?php ob_start();?>
+<!-- Se utiliza para evitar errores a la hora de recargar la pagina tras un cambio -->
 <html lang="en">
   <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -123,9 +125,6 @@
 					</nav>
 				</div>
 			</div>
-
-		
-			
 			<?php
 			#con este include todas las instancias llamadas pueden usar esta funcion
 			require "../DB/Functions_Mysql.php";
@@ -189,11 +188,9 @@
 										</div>
 
 									</form>
-
 									<?php
 									if (isset($_POST['enviar'])) {include "../Controlador/prestar_eq.php";}
 									?>
-
 								</div>
 							</div>
 						</div>
@@ -304,5 +301,6 @@
 	<script src="../vendors/starrr/dist/starrr.js"></script>
 	<!-- Custom Theme Scripts -->
 	<script src="../build/js/custom.min.js"></script>
-
+	<?php ob_end_flush(); ?>
+	<!-- Se utiliza para evitar errores a la hora de recargar la pagina tras un cambio -->
 </body></html>
