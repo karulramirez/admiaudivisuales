@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 21-10-2021 a las 18:46:28
+-- Tiempo de generación: 29-10-2021 a las 04:50:53
 -- Versión del servidor: 10.4.8-MariaDB
 -- Versión de PHP: 7.3.11
 
@@ -25,6 +25,49 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `equipos`
+--
+
+CREATE TABLE `equipos` (
+  `sn` int(11) NOT NULL,
+  `ct` varchar(45) NOT NULL,
+  `modelo` varchar(45) NOT NULL,
+  `observaciones` varchar(200) DEFAULT NULL,
+  `disponible` varchar(45) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `mantenimiento`
+--
+
+CREATE TABLE `mantenimiento` (
+  `idmantenimiento` int(11) NOT NULL,
+  `FechaInicioMant` datetime NOT NULL,
+  `FechaReparacion` datetime DEFAULT NULL,
+  `descripcion` varchar(200) DEFAULT NULL,
+  `equipos_sn` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `prestamo`
+--
+
+CREATE TABLE `prestamo` (
+  `idprestamo` int(11) NOT NULL,
+  `fechaHoraInicio` datetime NOT NULL,
+  `fechaHoraFinal` date NOT NULL,
+  `fechaDevolucion` datetime DEFAULT NULL,
+  `equipos_sn` int(11) NOT NULL,
+  `usuario_idUsuario` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `usuario`
 --
 
@@ -41,21 +84,52 @@ CREATE TABLE `usuario` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Volcado de datos para la tabla `usuario`
---
-
-INSERT INTO `usuario` (`idUsuario`, `cedula`, `nombre`, `apellido`, `facultad`, `tel`, `correo`, `tipoUsuario`, `clave`) VALUES
-(1234567, 981100, 'admin', 'super', 'administrador', 3000000, 'admin@admin.com', 'administrador', '1234');
-
---
 -- Índices para tablas volcadas
 --
+
+--
+-- Indices de la tabla `equipos`
+--
+ALTER TABLE `equipos`
+  ADD PRIMARY KEY (`sn`);
+
+--
+-- Indices de la tabla `mantenimiento`
+--
+ALTER TABLE `mantenimiento`
+  ADD PRIMARY KEY (`idmantenimiento`),
+  ADD KEY `fk_mantenimiento_equipos1_idx` (`equipos_sn`);
+
+--
+-- Indices de la tabla `prestamo`
+--
+ALTER TABLE `prestamo`
+  ADD PRIMARY KEY (`idprestamo`),
+  ADD KEY `fk_prestamo_equipos1_idx` (`equipos_sn`),
+  ADD KEY `fk_prestamo_usuario1_idx` (`usuario_idUsuario`);
 
 --
 -- Indices de la tabla `usuario`
 --
 ALTER TABLE `usuario`
   ADD PRIMARY KEY (`idUsuario`);
+
+--
+-- Restricciones para tablas volcadas
+--
+
+--
+-- Filtros para la tabla `mantenimiento`
+--
+ALTER TABLE `mantenimiento`
+  ADD CONSTRAINT `fk_mantenimiento_equipos1` FOREIGN KEY (`equipos_sn`) REFERENCES `equipos` (`sn`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Filtros para la tabla `prestamo`
+--
+ALTER TABLE `prestamo`
+  ADD CONSTRAINT `fk_prestamo_equipos1` FOREIGN KEY (`equipos_sn`) REFERENCES `equipos` (`sn`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_prestamo_usuario1` FOREIGN KEY (`usuario_idUsuario`) REFERENCES `usuario` (`idUsuario`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
