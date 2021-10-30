@@ -1,8 +1,5 @@
-<?php
-"MantenimientoEquipos.php"
-?>
-
 <!DOCTYPE html>
+<?php ob_start();?>
 <html lang="en">
   <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -134,7 +131,10 @@
 				</div>
 			</div>
 		
-			
+			<?php
+			#con este include todas las instancias llamadas pueden usar esta funcion
+			require "../DB/Functions_Mysql.php";
+			?>
 
 			<!-- page content -->
 			<div class="right_col" role="main">
@@ -155,44 +155,52 @@
 								</div>
 								<div class="x_content">
 									<br />
-									<form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+									<form method="POST" action="MantenimientoEquipos.php" id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
 
 										<div class="item form-group">
 											<label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name"> Serieal del equipo (SN#) <span class="required">*</span>
 											</label>
 											<div class="col-md-6 col-sm-6 ">
-												<input type="text" id="first-name" required="required" class="form-control ">
+												<input type="text" id="first-name" name="serial" required="required" class="form-control ">
 											</div>
 										</div>
 										<div class="item form-group">
 											<label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Descripción Mantenimiento</label>
 											<div class="col-md-6 col-sm-6 ">
-												<input id="middle-name" class="form-control" type="text" name="middle-name">
+												<input id="middle-name" name="descripcion" class="form-control" type="text" name="middle-name">
 											</div>
 										</div>
 										<div class="ln_solid"></div>
 										<div class="item form-group">
 											<div class="col-md-6 col-sm-6 offset-md-3">
-												<button type="submit" class="btn btn-success">Confirmar</button>
+											<input type="submit" value="Confirmar" name="enviar" class="btn btn-success">
 											</div>
 										</div>
 
 									</form>
+
+									<?php
+									if (isset($_POST['enviar'])) {include "../Controlador/mantenimiento_eq.php";}
+									?>
 									
-									<div class="item form-group">
-											<label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name"> Serial de equipo (SN#) <span class="required">*</span>
-											</label>
-											<div class="col-md-6 col-sm-6 ">
-												<input type="text" id="first-name" required="required" class="form-control ">
-											</div>
-											<div class="ln_solid"></div>
+									<form method="POST" action="MantenimientoEquipos.php" id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
 										<div class="item form-group">
-											<div class="col-md-6 col-sm-6 offset-md-3">
-												<button type="submit" class="btn btn-success">Buscar</button>
-											</div>
-											
+											<label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name"> Serieal del equipo (SN#) <span class="required">*</span>
+										</label>
+										<div class="col-md-6 col-sm-6 ">
+											<input type="text" id="first-name" name="equipo" required="required" class="form-control ">
 										</div>
-								</div>
+									</div>
+									<div class="item form-group">
+										<div class="col-md-6 col-sm-6 offset-md-3">
+											<input type="submit" name="buscar" value="Buscar" class="btn btn-primary" type="button">
+										</div>
+									</div>
+								</form>
+								<?php
+								$codBusqueda = ""; 
+								if (isset($_POST['buscar'])) {include "../Controlador/buscar_mt.php";}
+								?>
 								
 								<div class="row">
                           <div class="col-sm-12">
@@ -208,13 +216,10 @@
                         </tr>
                       </thead>
                       <tbody>
-                        <tr>
-                          <td>Tiger Nixon</td>
-                          <td>System Architect</td>
-                          <td>Edinburgh</td>
-                          <td>2011/04/25</td>
-                          <td><button type="button" class="btn btn-danger">Cancelar</button></td>
-                        </tr>
+					  <?php
+					  $elimina="Si";
+					  include "../controlador/mostrar_mant.php";
+					  ?>
                       </tbody>
                     </table>
                   </div>
@@ -263,6 +268,6 @@
 	<script src="../vendors/starrr/dist/starrr.js"></script>
 	<!-- Custom Theme Scripts -->
 	<script src="../build/js/custom.min.js"></script>
-
+	<?php ob_end_flush(); ?>
 </body></html>
 

@@ -71,6 +71,7 @@ class Insertar extends ConexionBD
                 $ejecutar->execute();
             }else{
                 echo "ERROR: No se pudo hacer la insercion debido a inconsistensias en los datos<br>";
+                echo $insertar;
                // echo "ERROR: ".$this->conexion->error." : ".$insertar;
             }
 
@@ -161,7 +162,7 @@ class Update extends ConexionBD
             $actualizar="DELETE FROM $this->table WHERE 
             $this->condiccion";
 
-            echo $actualizar;
+            //echo $actualizar;
             
             $ejecutar = $this->conexion->prepare($actualizar);
 

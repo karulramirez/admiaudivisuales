@@ -1,6 +1,5 @@
 <?php
 
-$idPres ="";
 
 if (count($_POST)==3) {
 
@@ -9,9 +8,15 @@ if (count($_POST)==3) {
     foreach ($_POST as $key => $value) {
 
         if ($key=="devuelto") {
-            $actualizar = new Update(TABLAS['pres'],'idprestamo',$value);
-            $actualizar->addVal('fechaDevolucion',$hoy);
+            $actualizar = new Update(TABLAS['mant'],'idmantenimiento',$value);
+            $actualizar->addVal('FechaReparacion',$hoy);
             $actualizar->ready();
+            $elimina="No";
+        }
+
+        if ($key=="eliminar") {
+            $actualizar = new Update(TABLAS['mant'],'idmantenimiento',$value);
+            $actualizar->erase();
         }
 
         if ($key=="equipo") {
@@ -28,11 +33,11 @@ if (count($_POST)==3) {
 }
 
 
-if ($atraso=="Si") {
-    header( "refresh:1; mora.php" ); 
+if ($elimina=="Si") {
+    header( "refresh:1; MantenimientoEquipos.php" ); 
     die();
-}elseif("No"){
-    header( "refresh:1; url=Prestamo.php" ); 
+}elseif($elimina=="No"){
+    header( "refresh:1; url=Registro_mantenimiento.php" ); 
     die();
 }
 
