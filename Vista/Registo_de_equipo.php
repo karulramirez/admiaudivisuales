@@ -152,7 +152,7 @@
 											<label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name"> Serieal del equipo (SN#) <span class="required">*</span>
 											</label>
 											<div class="col-md-6 col-sm-6 ">
-												<input type="text" name="serial" id="first-name" required class="form-control ">
+												<input type="text" name="sn" id="first-name" required class="form-control ">
 											</div>
 										</div>
 										<div class="item form-group">
@@ -181,11 +181,16 @@
 												<input type="submit" class="btn btn-success" value="Enviar" name="enviar">
 												<!--<button type="submit" class="btn btn-success">Enviar</button>-->
 												<button type="submit" class="btn btn-success">cargar lista estuidantes.doc</button>
-												<button type="submit" class="btn btn-success">cargar equipos audiovisuales.doc</button>
+												
 											</div>
 										</div>
 
 									</form>
+                  
+                  <form enctype="multipart/form-data"  action="subirExcel.php" method="POST">
+                          <input name="subir_archivo" type="file">
+                          <button type="submit" class="btn btn-success">cargar equipos audiovisuales.doc</button>
+                        </form>
 
 									<?php
 									if (isset($_POST['enviar'])) {include "../Controlador/insertar_eq.php";}
