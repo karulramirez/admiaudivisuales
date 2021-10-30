@@ -41,7 +41,7 @@ if ($filas) {
             echo "<td>"; echo $fila['apellido']; echo "</td>";
             echo "<td>"; echo $fila['facultad']; echo "</td>";
             echo "<td>"; echo $fila['tel']; echo "</td>";
-            echo "<td>"; echo $fila['sn']; echo "</td>";
+            echo "<td>"; echo $fila['serial']; echo "</td>";
             echo "<td>"; echo $fila['ct']; echo "</td>";
             echo "<td>"; echo $fila['fechaHoraInicio']; echo "</td>";
             echo "<td>"; echo $fila['fechaHoraFinal']; echo "</td>";

@@ -211,6 +211,7 @@
                           <th>SN#</th>
                           <th>CT</th>
 						  <th>Modleo</th>
+						  <th>Descripción</th>
                           <th>Start date</th>
 						  <th>reparacion</th>
                         </tr>

@@ -45,6 +45,7 @@ if ($filas) {
             echo "<td>"; echo $fila['serial']; echo "</td>";
             echo "<td>"; echo $fila['ct']; echo "</td>";
             echo "<td>"; echo $fila['modelo']; echo "</td>";
+            echo "<td>"; echo $fila['descripcion']; echo "</td>";
             echo "<td>"; echo $fila['FechaInicioMant']; echo "</td>";
             if (!$fila['FechaReparacion']) {
                 echo "<td><form method='POST' action='MantenimientoEquipos.php' id='demo-form2' data-parsley-validate class='form-horizontal form-label-left'>";
