@@ -121,8 +121,8 @@ ALTER TABLE `usuario`
 --
 -- Filtros para la tabla `mantenimiento`
 --
-ALTER TABLE `mantenimiento`
-  ADD CONSTRAINT `fk_mantenimiento_equipos1` FOREIGN KEY (`equipos_sn`) REFERENCES `equipos` (`sn`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+/* ALTER TABLE `mantenimiento`
+  ADD CONSTRAINT `fk_mantenimiento_equipos1` FOREIGN KEY (`equipos_sn`) REFERENCES `equipos` (`sn`) ON DELETE NO ACTION ON UPDATE NO ACTION; */
 
 --
 -- Filtros para la tabla `prestamo`
