@@ -17,7 +17,7 @@ if (count($_POST)==2) {
                 foreach($array as $fila){
 
                     $consulta2 = new Consultar();
-                    $instruccion2 = "SELECT * FROM ".TABLAS['pres']." WHERE equipos_sn=".$fila['sn']."";
+                    $instruccion2 = "SELECT * FROM ".TABLAS['mant']." WHERE equipos_sn=".$fila['sn']."";
                     $array2 = $consulta2->getDates($instruccion2);
 
                     if ($array2) {
@@ -28,7 +28,7 @@ if (count($_POST)==2) {
                 }
 
                 if ($codBusqueda=="") {
-                    $razon = "El equipo no ha sido prestado en ninguna ocasion";
+                    $razon = "El equipo no ha estado en mantenimiento";
                 }
 
                 break;

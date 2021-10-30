@@ -15,7 +15,7 @@ foreach($filas as $fila){
     }
 
     echo "<tr>";
-    echo "<td>"; echo $fila['sn']; echo "</td>";
+    echo "<td>"; echo $fila['serial']; echo "</td>";
     echo "<td>"; echo $fila['ct']; echo "</td>";
     echo "<td>"; echo $fila['modelo']; echo "</td>";
     echo "<td>"; echo $obs; echo "</td>";

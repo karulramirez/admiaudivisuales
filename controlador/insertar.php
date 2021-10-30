@@ -2,18 +2,20 @@
 
 #incluir el archivo Funtions_Mysql.php en el body de la vista antes de llamar a este archivo
 
-$equipos = array("cedula"=>0,
+$usuario = array("idUsuario"=>0,
+"cedula"=>0,
 "nombre"=>"",
 "apellido"=>"",
 "facultad"=>"",
 "tel"=>"",
-"correo"=>"");
+"correo"=>"",
+"tipoUsuario"=>"");
 
 
 $validar=0;
 $razon = "";
 
-if (count($_POST)==6) {
+if (count($_POST)==7) {
 
 
     foreach ($_POST as $key1 => $value1) {
@@ -21,49 +23,89 @@ if (count($_POST)==6) {
         #echo $key1." : ".$value1." <br><br>";
 
 
-        foreach ($equipos as $key2 => $value2) {
+        foreach ($usuario as $key2 => $value2) {
 
             #echo $key2." : ".$value2." : ".$key1."<br><br>";
             
 
             if ($key1==$key2) {
+                $usuario[$key2] = $value1;
 
-                $equipos[$key2] = $value1;
+                if ($key1=="nombres" OR $key1=="apellido") {
 
-                /*if ($key1=="nombres" OR $key1=="apellidos") {
 
                     if (!preg_match(EXPREG['letras'],$value1)) {
                         $validar=2;
-                        echo "solo letras y espacios <br><br>";
+                        $razon = "solo letras y espacios en los campos determinados <br><br>";
+                        break;
+                    }elseif($usuario['nombre']!="" AND $usuario['apellido']!=""){
+                        //echo "entro";
+                        $usuario['nombre'] = strtoupper($usuario['nombre']);
+                        $usuario['apellido'] = strtoupper($usuario['apellido']);
+
+                        $sentencia = "SELECT * FROM ".TABLAS['user']." WHERE nombre='".$usuario['nombre']."' AND apellido='".$usuario['apellido']."'";
+                        $consulta = new Consultar();
+                        $array = $consulta->getDates($sentencia);
+
+                        if ($array) {
+                            $razon = "El usuario ya se encuentra registrado";
+                            $validar=2;
+                            break;
+                        }
                     }
 
-                }*/
+                    break;
+
+                }
 
                 if ($value1=="" and $key1!="correo") {
                     $razon = "Algunos campos obligatorios estan vacios";
                     $validar = 2;
+                    break;
 
                 }elseif($key1=="cedula") {
 
                     if (preg_match(EXPREG['number'],$value1)) {
-                        $sentencia = "SELECT * FROM ".TABLAS['usuarios']." WHERE cedula='".$usuario['cedula']."'";
+                        $sentencia = "SELECT * FROM ".TABLAS['user']." WHERE cedula='".$usuario['cedula']."'";
                         $consulta = new Consultar();
                         $array = $consulta->getDates($sentencia);
                         
                         if ($array) {
                             $validar = 2;
-                            $razon = "El cedula ya se encuentra registrado";
+                            $razon = "La cedula ya se encuentra registrada";
                         }else{
                             $validar = 1;
                         }
                     }else{
-                        $razon = "el cedula solo puede ser numerico";
+                        $razon = "La cedula solo puede ser numerica";
                         $validar =2;
+                        break;
+                    }
+                    break;
+
+                    
+
+                }elseif ($key1=="correo") {
+
+                    if (preg_match(EXPREG['email'],$value1)) {
+
+                        $sentencia = "SELECT * FROM ".TABLAS['user']." WHERE correo='".$usuario['correo']."'";
+                        $consulta = new Consultar();
+                        $array = $consulta->getDates($sentencia);
+
+                        if ($array) {
+                            $razon = "El correo ya se encuentra registrado";
+                            $validar = 2;
+                            break;
+                        }
+
+                    }else{
+                        $razon = "El formato del correo no es valido";
+                        $validar = 2;
                         break;
                     }
 
                     
-
                 }
 
                 
@@ -81,6 +123,20 @@ if (count($_POST)==6) {
 
         $buscar = new Consultar();
 
+        $info = $buscar->getDates("SELECT MAX(idUsuario)+1 AS Ultimo FROM ".TABLAS['user']);
+
+        if ($info) {
+            foreach ($info as $llave) {
+                $idUser = $info[0]['Ultimo'];
+    
+            }
+        }else{
+            $idUser = 0;
+        }
+
+        $usuario['idUsuario'] = $idUser;
+        $usuario['tipoUsuario']=$usuario['facultad'];
+
         /*$info = $buscar->getDates("SELECT MAX(codUser)+1 AS Ultimo FROM ".TABLAS['user']);
 
 
@@ -91,11 +147,11 @@ if (count($_POST)==6) {
 
         //echo var_dump(array_values($info)); revisar estructura array
 
-        $insertar = new Insertar(TABLAS['eq']);
+        $insertar = new Insertar(TABLAS['user']);
 
         #$insertar->add('codUser',$codUs);
 
-        foreach ($equipos as $key => $value) {
+        foreach ($usuario as $key => $value) {
             $insertar->add($key,$value);
 
         }

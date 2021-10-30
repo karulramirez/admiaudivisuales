@@ -147,44 +147,44 @@
 									#con este include todas las instancias llamadas pueden usar esta funcion
 									include "../DB/Functions_Mysql.php";
 									?>
-									<form method="POST" action="Registo_de_equipo.php" id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+									<form method="POST" action="Registro_usuarios.php" id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
 
 										<div class="item form-group">
 											<label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name"> Cedula <span class="required">*</span>
 											</label>
 											<div class="col-md-6 col-sm-6 ">
-												<input type="number" name="sn" id="first-name" required class="form-control ">
+												<input type="number" name="cedula" id="first-name" required class="form-control ">
 											</div>
 										</div>
 										<div class="item form-group">
 											<label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name"> Nombre <span class="required">*</span>
 											</label>
 											<div class="col-md-6 col-sm-6 ">
-												<input type="text" id="last-name" name="ct" required class="form-control">
+												<input type="text" id="last-name" name="nombre" required class="form-control">
 											</div>
 										</div>
 										<div class="item form-group">
 											<label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Apellido</label>
 											<div class="col-md-6 col-sm-6 ">
-												<input id="middle-name" class="form-control" type="text" required name="modelo">
+												<input id="middle-name" class="form-control" type="text" required name="apellido">
 											</div>
 										</div>	
 										<div class="item form-group">
 											<label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">faculta</label>
 											<div class="col-md-6 col-sm-6 ">
-												<input id="middle-name" class="form-control" type="text" name="observaciones">
+												<input id="middle-name" class="form-control" type="text" name="facultad">
 											</div>
 										</div>
                                         <div class="item form-group">
 											<label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Telefono</label>
 											<div class="col-md-6 col-sm-6 ">
-												<input id="middle-name" class="form-control" type="text" name="observaciones">
+												<input id="middle-name" class="form-control" type="number" name="tel">
 											</div>
 										</div>
                                         <div class="item form-group">
 											<label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Correo</label>
 											<div class="col-md-6 col-sm-6 ">
-												<input id="middle-name" class="form-control" type="text" name="observaciones">
+												<input id="middle-name" class="form-control" type="text" name="correo">
 											</div>
 										</div>
 										<div class="ln_solid"></div>
