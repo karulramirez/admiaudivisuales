@@ -60,28 +60,25 @@ ENGINE = InnoDB;
 -- Table `gh`.`Equipos`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `gh`.`Equipos` (
-  `sn` INT NOT NULL,
+  `sn` VARCHAR(45) NOT NULL,
   `ct` VARCHAR(45) NOT NULL,
   `modelo` VARCHAR(45) NOT NULL,
   `descripcion` VARCHAR(45) NOT NULL,
-  `Entrega_id` INT NOT NULL,
-  `Mantenimiento_idmantenimiento` INT NOT NULL,
-  `Devolucion_devolucion` INT NOT NULL,
-  PRIMARY KEY (`sn`, `Entrega_id`, `Mantenimiento_idmantenimiento`, `Devolucion_devolucion`),
-  INDEX `fk_Equipos_Entrega1_idx` (`Entrega_id` ASC),
-  INDEX `fk_Equipos_Mantenimiento1_idx` (`Mantenimiento_idmantenimiento` ASC),
-  INDEX `fk_Equipos_Devolucion1_idx` (`Devolucion_devolucion` ASC),
-  CONSTRAINT `fk_Equipos_Entrega1`
+  `Entrega_id` INT,
+  `Mantenimiento_idmantenimiento` INT,
+  `Devolucion_devolucion` INT,
+  PRIMARY KEY (`sn`),
+    CONSTRAINT `fk_equipos_prestamo`
     FOREIGN KEY (`Entrega_id`)
     REFERENCES `gh`.`Prestamo` (`idprestamo`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_Equipos_Mantenimiento1`
+  CONSTRAINT `fk_equipos_mantenimiento`
     FOREIGN KEY (`Mantenimiento_idmantenimiento`)
     REFERENCES `gh`.`Mantenimiento` (`idmantenimiento`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_Equipos_Devolucion1`
+  CONSTRAINT `fk_equipos_devolucion`
     FOREIGN KEY (`Devolucion_devolucion`)
     REFERENCES `gh`.`Devolucion` (`devolucion`)
     ON DELETE NO ACTION
