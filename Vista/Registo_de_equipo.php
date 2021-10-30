@@ -181,11 +181,16 @@
 												<input type="submit" class="btn btn-success" value="Enviar" name="enviar">
 												<!--<button type="submit" class="btn btn-success">Enviar</button>-->
 												<button type="submit" class="btn btn-success">cargar lista estuidantes.doc</button>
-												<button type="submit" class="btn btn-success">cargar equipos audiovisuales.doc</button>
+												
 											</div>
 										</div>
 
 									</form>
+                  
+                  <form enctype="multipart/form-data"  action="subirExcel.php" method="POST">
+                          <input name="subir_archivo" type="file">
+                          <button type="submit" class="btn btn-success">cargar equipos audiovisuales.doc</button>
+                        </form>
 
 									<?php
 									if (isset($_POST['enviar'])) {include "../Controlador/insertar_eq.php";}
