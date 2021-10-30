@@ -193,8 +193,8 @@
 												<button class="btn btn-primary" type="button">Cancel</button>
 												<input type="submit" class="btn btn-success" value="Enviar" name="enviar">
 												<!--<button type="submit" class="btn btn-success">Enviar</button>-->
-												<button type="submit" class="btn btn-success">cargar lista estuidantes.doc</button>
-												<button type="submit" class="btn btn-success">cargar equipos audiovisuales.doc</button>
+												<button type="submit" class="btn btn-success">cargar lista usuarios</button>
+												<button type="submit" class="btn btn-success"> descargar lista</button>
 											</div>
 										</div>
 

@@ -62,7 +62,6 @@
                                       <li><a href="Registro_usuarios.php">Formumario Registo usuarios</a></li>
 									                  	<li><a href="Registo_de_equipo.php">Formumario Registo</a></li>	
 									                  	<li><a href="Prestamo.php">Formumario Prestamo del equipo</a></li>
-										                  <li><a href="Devolucion.php">Recepcion de equipo</a></li>
                                       <li><a href="mora.php">Retraso devolucion de equipo</a></li>
                                     </ul>
                                 </li>
