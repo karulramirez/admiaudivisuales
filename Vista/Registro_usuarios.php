@@ -152,38 +152,50 @@
 										<div class="item form-group">
 											<label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name"> Cedula <span class="required">*</span>
 											</label>
-											<div class="col-md-6 col-sm-6 ">
+											<div class="col-md-4 col-sm-4 ">
 												<input type="number" name="cedula" id="first-name" required class="form-control ">
 											</div>
 										</div>
 										<div class="item form-group">
 											<label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name"> Nombre <span class="required">*</span>
 											</label>
-											<div class="col-md-6 col-sm-6 ">
+											<div class="col-md-4 col-sm-4 ">
 												<input type="text" id="last-name" name="nombre" required class="form-control">
 											</div>
 										</div>
 										<div class="item form-group">
 											<label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Apellido</label>
-											<div class="col-md-6 col-sm-6 ">
+											<div class="col-md-4 col-sm-4 ">
 												<input id="middle-name" class="form-control" type="text" required name="apellido">
 											</div>
 										</div>	
 										<div class="item form-group">
 											<label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">faculta</label>
-											<div class="col-md-6 col-sm-6 ">
+											<div class="col-md-4 col-sm-4 ">
 												<input id="middle-name" class="form-control" type="text" name="facultad">
 											</div>
 										</div>
+										<div class="form-group row">
+											<label class="col-form-label col-md-3 col-sm-3 label-align">Rol</label>
+											<div class="col-md-2 col-sm-2 ">
+												<select class="select2_single form-control" tabindex="-1">
+													<option></option>
+													<option value="ES">Estudiante</option>
+													<option value="DO">Docente</option>
+												</select>
+											</div>
+										
+											</div>
+										
                                         <div class="item form-group">
 											<label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Telefono</label>
-											<div class="col-md-6 col-sm-6 ">
+											<div class="col-md-4 col-sm-4 ">
 												<input id="middle-name" class="form-control" type="number" name="tel">
 											</div>
 										</div>
                                         <div class="item form-group">
 											<label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Correo</label>
-											<div class="col-md-6 col-sm-6 ">
+											<div class="col-md-4 col-sm-4 ">
 												<input id="middle-name" class="form-control" type="text" name="correo">
 											</div>
 										</div>

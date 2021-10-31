@@ -151,28 +151,29 @@
 										<div class="item form-group">
 											<label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name"> Serieal del equipo (SN#) <span class="required">*</span>
 											</label>
-											<div class="col-md-6 col-sm-6 ">
+											<div class="col-md-4 col-sm-4 ">
 												<input type="text" name="serial" id="first-name" required class="form-control ">
 											</div>
 										</div>
 										<div class="item form-group">
 											<label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name"> Cargador (CT) <span class="required">*</span>
 											</label>
-											<div class="col-md-6 col-sm-6 ">
+											<div class="col-md-4 col-sm-4 ">
 												<input type="text" id="last-name" name="ct" required class="form-control">
 											</div>
 										</div>
 										<div class="item form-group">
 											<label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Modelo</label>
-											<div class="col-md-6 col-sm-6 ">
+											<div class="col-md-4 col-sm-4 ">
 												<input id="middle-name" class="form-control" type="text" required name="modelo">
 											</div>
 										</div>	
 										<div class="item form-group">
 											<label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Descripcion del problema</label>
-											<div class="col-md-6 col-sm-6 ">
+											<div class="col-md-4 col-sm-4 ">
 												<input id="middle-name" class="form-control" type="text" name="observaciones">
 											</div>
+											
 										</div>	
 										<div class="ln_solid"></div>
 										<div class="item form-group">

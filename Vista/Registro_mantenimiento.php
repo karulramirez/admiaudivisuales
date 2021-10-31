@@ -156,7 +156,7 @@
                               <div class="item form-group">
                                 <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name"> Serieal del equipo (SN#) <span class="required">*</span>
                               </label>
-                              <div class="col-md-6 col-sm-6 ">
+                              <div class="col-md-3 col-sm-3 ">
                                 <input type="text" id="first-name" name="equipo" required="required" class="form-control ">
                               </div>
                             </div>

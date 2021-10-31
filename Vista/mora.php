@@ -61,7 +61,6 @@
                                       <li><a href="Registro_usuarios.php">Formumario Registo usuarios</a></li>
 									                  	<li><a href="Registo_de_equipo.php">Formumario Registo</a></li>	
 									                  	<li><a href="Prestamo.php">Formumario Prestamo del equipo</a></li>
-									                  	<li><a href="Devolucion.php">Recepcion de equipo</a></li>
                                         <li><a href="mora.php">Retraso devolucion de equipo</a></li>
                                     </ul>
                                 </li>
@@ -161,7 +160,7 @@
                             <div class="item form-group">
                               <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name"> Serieal del equipo (SN#) <span class="required">*</span>
                             </label>
-                            <div class="col-md-6 col-sm-6 ">
+                            <div class="col-md-2 col-sm-2 ">
                               <input type="text" id="first-name" name="equipo" required="required" class="form-control ">
                             </div>
                           </div>

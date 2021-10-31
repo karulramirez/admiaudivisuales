@@ -160,13 +160,13 @@
 										<div class="item form-group">
 											<label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name"> Serieal del equipo (SN#) <span class="required">*</span>
 											</label>
-											<div class="col-md-6 col-sm-6 ">
+											<div class="col-md-3 col-sm-3 ">
 												<input type="text" id="first-name" name="serial" required="required" class="form-control ">
 											</div>
 										</div>
 										<div class="item form-group">
 											<label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Descripción Mantenimiento</label>
-											<div class="col-md-6 col-sm-6 ">
+											<div class="col-md-3 col-sm-3 ">
 												<input id="middle-name" name="descripcion" class="form-control" type="text" name="middle-name">
 											</div>
 										</div>
@@ -187,7 +187,7 @@
 										<div class="item form-group">
 											<label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name"> Serieal del equipo (SN#) <span class="required">*</span>
 										</label>
-										<div class="col-md-6 col-sm-6 ">
+										<div class="col-md-3 col-sm-3 ">
 											<input type="text" id="first-name" name="equipo" required="required" class="form-control ">
 										</div>
 									</div>

@@ -151,22 +151,23 @@
 										<div class="item form-group">
 											<label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name"> Cedula <span class="required">*</span>
 											</label>
-											<div class="col-md-6 col-sm-6 ">
+											<div class="col-md-4 col-sm-4 ">
 												<input type="number" name="cedula" id="first-name" required class="form-control ">
 											</div>
 										</div>
 										<div class="item form-group">
 											<label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name"> Serieal del equipo (SN#) <span class="required">*</span>
 											</label>
-											<div class="col-md-6 col-sm-6 ">
+											<div class="col-md-4 col-sm-4 ">
 												<input type="text" name="serial" id="first-name" required class="form-control ">
 											</div>
 										</div>
 										
+										
 										<div class="item form-group">
 											<label class="col-form-label col-md-3 col-sm-3 label-align"> Dia de entrega <span class="required">*</span>
 											</label>
-											<div class="col-md-6 col-sm-6 ">
+											<div class="col-md-4 col-sm-4 ">
 												<input id="birthday" name="fecha" class="date-picker form-control" placeholder="yyyy-mm-dd" type="text" required onfocus="this.type='date'" onmouseover="this.type='date'" onclick="this.type='date'" onblur="this.type='text'" onmouseout="timeFunctionLong(this)">
 												<script>
 													function timeFunctionLong(input) {
@@ -177,6 +178,7 @@
 												</script>
 											</div>
 										</div>
+
 									
 
 										<div class="ln_solid"></div>
@@ -200,7 +202,7 @@
 			<div class="item form-group">
 			<label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name"> Serieal del equipo (SN#) <span class="required">*</span>
 				</label>
-					<div class="col-md-6 col-sm-6 ">
+					<div class="col-md-2 col-sm-2 ">
 						<input type="text" id="first-name" name="equipo" required="required" class="form-control ">
 					</div>
 			</div>
