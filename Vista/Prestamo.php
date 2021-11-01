@@ -186,6 +186,7 @@
 											<div class="col-md-6 col-sm-6 offset-md-3">
 												<button class="btn btn-primary" type="button">Cancel</button>
 												<input type="submit" value="Confirmar" name="enviar" class="btn btn-success">
+												<button class="btn btn-primary" type="button">descargar lista prestamos</button>
 											</div>
 										</div>
 
