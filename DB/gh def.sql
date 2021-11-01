@@ -106,6 +106,7 @@ CREATE TABLE `usuario` (
   `nombre` varchar(45) NOT NULL,
   `apellido` varchar(45) NOT NULL,
   `facultad` varchar(45) NOT NULL,
+  `rol` varchar(45) NOT NULL,
   `tel` bigint(20) NOT NULL,
   `correo` varchar(45) NOT NULL,
   `tipoUsuario` varchar(45) NOT NULL,

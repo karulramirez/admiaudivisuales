@@ -20,7 +20,7 @@ $spreadsheet = $reader->load("EQUIPOS.xlsx");
 $worksheet = $spreadsheet->getActiveSheet();
 
 // (C) READ DATA + IMPORT
-$sql = "INSERT INTO `equipos` (`sn`, `ct`, `modelo`, `observaciones`, `disponible` ) VALUES (?, ?, ?, ?, ?)";
+$sql = "INSERT INTO `equipos` (`sn`, `serial`, `ct`, `modelo`, `observaciones`, `disponible` ) VALUES (?, ?, ?, ?, ?, ?)";
 foreach ($worksheet->getRowIterator() as $row) {
   // (C1) FETCH DATA FROM WORKSHEET
   $cellIterator = $row->getCellIterator();
