@@ -42,7 +42,7 @@
             // Escribir fila tras fila y escribirlo en el archivo csv.
             while($row = $query->fetch_assoc()){ 
                 $data = array();
-                for($i = 0; $i < count($columns); $i++){
+                for($i = 0; $i < count($columns)-1; $i++){
                     $column = $columns[$i];
                     
                     /*hacer un omitir clave*/
