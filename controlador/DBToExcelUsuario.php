@@ -17,7 +17,7 @@
             print_r($mysqli->error);
         }
         // traer los nombre de las columnas
-        $queryColumns = $mysqli->query("SELECT Column_Name FROM INFORMATION_SCHEMA.COLUMNS WHERE  Column_Name <> clave AND TABLE_NAME = '".$dbTable."' AND TABLE_SCHEMA = '".$dbName."';");
+        $queryColumns = $mysqli->query("SELECT Column_Name FROM INFORMATION_SCHEMA.COLUMNS WHERE  Column_Name <> 'clave' AND TABLE_NAME = '".$dbTable."' AND TABLE_SCHEMA = '".$dbName."';");
         if (!$queryColumns) {
             print_r($mysqli->error);
         }
@@ -42,13 +42,13 @@
             // Escribir fila tras fila y escribirlo en el archivo csv.
             while($row = $query->fetch_assoc()){ 
                 $data = array();
-                for($i = 0; $i < count($columns)-1; $i++){
+                for($i = 0; $i < count($columns); $i++){
                     $column = $columns[$i];
                     
                     /*hacer un omitir clave*/
-                   // if($column == 'clave'){
-                   
-                   // }
+                   if($column != 'clave'){
+                      
+                 }
                    
                     if(isset($row[$column])) {
                         array_push($data, $row[$column]);
