@@ -151,28 +151,29 @@
 										<div class="item form-group">
 											<label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name"> Serieal del equipo (SN#) <span class="required">*</span>
 											</label>
-											<div class="col-md-6 col-sm-6 ">
-												<input type="number" name="sn" id="first-name" required class="form-control ">
+											<div class="col-md-4 col-sm-4 ">
+												<input type="text" name="serial" id="first-name" required class="form-control ">
 											</div>
 										</div>
 										<div class="item form-group">
 											<label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name"> Cargador (CT) <span class="required">*</span>
 											</label>
-											<div class="col-md-6 col-sm-6 ">
+											<div class="col-md-4 col-sm-4 ">
 												<input type="text" id="last-name" name="ct" required class="form-control">
 											</div>
 										</div>
 										<div class="item form-group">
 											<label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Modelo</label>
-											<div class="col-md-6 col-sm-6 ">
+											<div class="col-md-4 col-sm-4 ">
 												<input id="middle-name" class="form-control" type="text" required name="modelo">
 											</div>
 										</div>	
 										<div class="item form-group">
 											<label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Descripcion del problema</label>
-											<div class="col-md-6 col-sm-6 ">
+											<div class="col-md-4 col-sm-4 ">
 												<input id="middle-name" class="form-control" type="text" name="observaciones">
 											</div>
+											
 										</div>	
 										<div class="ln_solid"></div>
 										<div class="item form-group">
@@ -180,11 +181,17 @@
 												<button class="btn btn-primary" type="button">Cancel</button>
 												<input type="submit" class="btn btn-success" value="Enviar" name="enviar">
 												<!--<button type="submit" class="btn btn-success">Enviar</button>-->
-												<button type="submit" class="btn btn-success">cargar lista estuidantes.doc</button>
-												<button type="submit" class="btn btn-success">cargar equipos audiovisuales.doc</button>
 											</div>
 										</div>
-
+									</form>
+									<form action="../controlador/DBToExcelEquipo.php" method="POST" enctype="multipart/form-data">
+										<button name="descargar" value="descargar" type="submit" class="btn btn-success">descargar lista</button>
+									</form>
+                  
+									<?php require("../controlador/excelToDBEquipos.php") ?> 
+                  					<form enctype="multipart/form-data"  action="./Registo_de_equipo.php" method="POST">
+										<input name="csvFile" type="file">
+										<button type="submit" class="btn btn-success">cargar equipos audiovisuales</button>
 									</form>
 
 									<?php
@@ -195,22 +202,21 @@
 									<div class="row">
                           <div class="col-sm-12">
                             <div class="card-box table-responsive">
-                   
-                    <table id="datatable" class="table table-striped table-bordered" style="width:100%">
-                      <thead>
-                        <tr>
-                          <th>SN#</th>
-                          <th>CT</th>
-						  <th>Modelo</th>
-						  <th>Descripcion del problema</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                      <?php
-                       include "../controlador/mostrarEquipos.php";
-					  ?>	
-                      </tbody>
-                    </table>
+									<table id="datatable" class="table table-striped table-bordered" style="width:100%">
+									<thead>
+										<tr>
+										<th>SN#</th>
+										<th>CT</th>
+										<th>Modelo</th>
+										<th>Descripcion del problema</th>
+										</tr>
+									</thead>
+									<tbody>
+									<?php
+									include "../controlador/mostrarEquipos.php";
+									?>	
+									</tbody>
+									</table>
 								</div>
 							</div>
 						</div>

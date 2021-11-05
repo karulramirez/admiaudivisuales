@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<?php ob_start();?>
 <html lang="en">
   <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -60,7 +61,6 @@
                                       <li><a href="Registro_usuarios.php">Formumario Registo usuarios</a></li>
 									                  	<li><a href="Registo_de_equipo.php">Formumario Registo</a></li>	
 									                  	<li><a href="Prestamo.php">Formumario Prestamo del equipo</a></li>
-									                  	<li><a href="Devolucion.php">Recepcion de equipo</a></li>
                                         <li><a href="mora.php">Retraso devolucion de equipo</a></li>
                                     </ul>
                                 </li>
@@ -129,6 +129,11 @@
             
         <!-- /top navigation -->
 
+        <?php
+        #con este include todas las instancias llamadas pueden usar esta funcion
+        require "../DB/Functions_Mysql.php";
+        ?>
+
         <!-- page content -->
         <div class="right_col" role="main">
           
@@ -138,16 +143,37 @@
                 <div class="x_panel">
                   <div class="x_title">
                     <h2><small>Devolucion de equipos </small></h2>
+                    
                     <ul class="nav navbar-right panel_toolbox">
+
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                       </li>
                       <li class="dropdown">
                         </i>
+                        
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
                       <div class="row">
-                          <div class="col-sm-12">
+                         <div class="col-sm-12">
+                          <form method="POST" action="mora.php" id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+                            <div class="item form-group">
+                              <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name"> Serieal del equipo (SN#) <span class="required">*</span>
+                            </label>
+                            <div class="col-md-2 col-sm-2 ">
+                              <input type="text" id="first-name" name="equipo" required="required" class="form-control ">
+                            </div>
+                          </div>
+                          <div class="item form-group">
+                            <div class="col-md-6 col-sm-6 offset-md-3">
+                              <input type="submit" name="buscar" value="Buscar" class="btn btn-primary" type="button">
+                            </div>
+                          </div>
+                        </form>
+                        <?php
+                        $codBusqueda = ""; 
+                        if (isset($_POST['buscar'])) {include "../Controlador/buscar_eq.php";}
+                        ?>
                     <table id="datatable" class="table table-striped table-bordered" style="width:100%">
                       <thead>
                         <tr>
@@ -156,83 +182,16 @@
                           <th>apellido</th>
                           <th>serial equipo</th>
                           <th>Cargador</th>
-						  <th>Fecha de la devolucion</th>
+                          <th>Fecha de la devolucion</th>
+                          <th>Devolver</th>
                         </tr>
                       </thead>
 
 
                       <tbody>
-                        <tr>
-                          <td>Tiger Nixon</td>
-                          <td>System Architect</td>
-                          <td>Edinburgh</td>
-                          <td>61</td>
-                          <td>2011/04/25</td>
-                          <td>$320,800</td>
-                        </tr>
-                        <tr>
-                          <td>Garrett Winters</td>
-                          <td>Accountant</td>
-                          <td>Tokyo</td>
-                          <td>63</td>
-                          <td>2011/07/25</td>
-                          <td>$170,750</td>
-                        </tr>
-                        <tr>
-                          <td>Ashton Cox</td>
-                          <td>Junior Technical Author</td>
-                          <td>San Francisco</td>
-                          <td>66</td>
-                          <td>2009/01/12</td>
-                          <td>$86,000</td>
-                        </tr>
-                        <tr>
-                          <td>Cedric Kelly</td>
-                          <td>Senior Javascript Developer</td>
-                          <td>Edinburgh</td>
-                          <td>22</td>
-                          <td>2012/03/29</td>
-                          <td>$433,060</td>
-                        </tr>
-                        <tr>
-                          <td>Airi Satou</td>
-                          <td>Accountant</td>
-                          <td>Tokyo</td>
-                          <td>33</td>
-                          <td>2008/11/28</td>
-                          <td>$162,700</td>
-                        </tr>
-                        <tr>
-                          <td>Brielle Williamson</td>
-                          <td>Integration Specialist</td>
-                          <td>New York</td>
-                          <td>61</td>
-                          <td>2012/12/02</td>
-                          <td>$372,000</td>
-                        </tr>
-                        <tr>
-                          <td>Herrod Chandler</td>
-                          <td>Sales Assistant</td>
-                          <td>San Francisco</td>
-                          <td>59</td>
-                          <td>2012/08/06</td>
-                          <td>$137,500</td>
-                        </tr>
-                        <tr>
-                          <td>Rhona Davidson</td>
-                          <td>Integration Specialist</td>
-                          <td>Tokyo</td>
-                          <td>55</td>
-                          <td>2010/10/14</td>
-                          <td>$327,900</td>
-                        <tr>
-                          <td>Colleen Hurst</td>
-                          <td>Javascript Developer</td>
-                          <td>San Francisco</td>
-                          <td>39</td>
-                          <td>2009/09/15</td>
-                          <td>$205,500</td>			
-                        </tr>
+                      <?php
+                      include "../controlador/mostrar_atrasos.php";
+                      ?>
                   
                       </tbody>
                     </table>
@@ -277,6 +236,6 @@
 
     <!-- Custom Theme Scripts -->
     <script src="../build/js/custom.min.js"></script>
-
+    <?php ob_end_flush(); ?>
   </body>
 </html>

@@ -147,44 +147,56 @@
 									#con este include todas las instancias llamadas pueden usar esta funcion
 									include "../DB/Functions_Mysql.php";
 									?>
-									<form method="POST" action="Registo_de_equipo.php" id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+									<form method="POST" action="Registro_usuarios.php" id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
 
 										<div class="item form-group">
 											<label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name"> Cedula <span class="required">*</span>
 											</label>
-											<div class="col-md-6 col-sm-6 ">
-												<input type="number" name="sn" id="first-name" required class="form-control ">
+											<div class="col-md-4 col-sm-4 ">
+												<input type="number" name="cedula" id="first-name" required class="form-control ">
 											</div>
 										</div>
 										<div class="item form-group">
 											<label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name"> Nombre <span class="required">*</span>
 											</label>
-											<div class="col-md-6 col-sm-6 ">
-												<input type="text" id="last-name" name="ct" required class="form-control">
+											<div class="col-md-4 col-sm-4 ">
+												<input type="text" id="last-name" name="nombre" required class="form-control">
 											</div>
 										</div>
 										<div class="item form-group">
 											<label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Apellido</label>
-											<div class="col-md-6 col-sm-6 ">
-												<input id="middle-name" class="form-control" type="text" required name="modelo">
+											<div class="col-md-4 col-sm-4 ">
+												<input id="middle-name" class="form-control" type="text" required name="apellido">
 											</div>
 										</div>	
 										<div class="item form-group">
 											<label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">faculta</label>
-											<div class="col-md-6 col-sm-6 ">
-												<input id="middle-name" class="form-control" type="text" name="observaciones">
+											<div class="col-md-4 col-sm-4 ">
+												<input id="middle-name" class="form-control" type="text" name="facultad">
 											</div>
 										</div>
+										<div class="form-group row">
+											<label class="col-form-label col-md-3 col-sm-3 label-align">Rol</label>
+											<div class="col-md-2 col-sm-2 ">
+												<select class="select2_single form-control" tabindex="-1">
+													<option></option>
+													<option value="ES">Estudiante</option>
+													<option value="DO">Docente</option>
+												</select>
+											</div>
+										
+											</div>
+										
                                         <div class="item form-group">
 											<label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Telefono</label>
-											<div class="col-md-6 col-sm-6 ">
-												<input id="middle-name" class="form-control" type="text" name="observaciones">
+											<div class="col-md-4 col-sm-4 ">
+												<input id="middle-name" class="form-control" type="number" name="tel">
 											</div>
 										</div>
                                         <div class="item form-group">
 											<label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Correo</label>
-											<div class="col-md-6 col-sm-6 ">
-												<input id="middle-name" class="form-control" type="text" name="observaciones">
+											<div class="col-md-4 col-sm-4 ">
+												<input id="middle-name" class="form-control" type="text" name="correo">
 											</div>
 										</div>
 										<div class="ln_solid"></div>
@@ -193,12 +205,20 @@
 												<button class="btn btn-primary" type="button">Cancel</button>
 												<input type="submit" class="btn btn-success" value="Enviar" name="enviar">
 												<!--<button type="submit" class="btn btn-success">Enviar</button>-->
-												<button type="submit" class="btn btn-success">cargar lista estuidantes.doc</button>
-												<button type="submit" class="btn btn-success">cargar equipos audiovisuales.doc</button>
 											</div>
 										</div>
+									</form> 
 
+									<?php require("../controlador/excelToDBUsuarios.php") ?> 
+                  					<form enctype="multipart/form-data"  action="./Registro_usuarios.php" method="POST">
+										<input name="csvFile" type="file">
+										<button type="submit" class="btn btn-success">cargar usuarios</button>
 									</form>
+
+									<form action="../controlador/DBToExcelUsuario.php" method="POST" enctype="multipart/form-data">
+										<button name="descargar" value="descargar" type="submit" class="btn btn-success">descargar lista</button>
+									</form>
+
 
 									<?php
 									if (isset($_POST['enviar'])) {include "../Controlador/insertar.php";}

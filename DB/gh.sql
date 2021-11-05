@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `equipos` (
-  `sn` int(11) NOT NULL,
+  `sn` varchar(45) NOT NULL,
   `ct` varchar(45) NOT NULL,
   `modelo` varchar(45) NOT NULL,
   `observaciones` varchar(200) DEFAULT NULL,
@@ -61,7 +61,7 @@ CREATE TABLE `prestamo` (
   `fechaHoraInicio` datetime NOT NULL,
   `fechaHoraFinal` date NOT NULL,
   `fechaDevolucion` datetime DEFAULT NULL,
-  `equipos_sn` int(11) NOT NULL,
+  `equipos_sn` varchar(45) NOT NULL,
   `usuario_idUsuario` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -121,8 +121,8 @@ ALTER TABLE `usuario`
 --
 -- Filtros para la tabla `mantenimiento`
 --
-ALTER TABLE `mantenimiento`
-  ADD CONSTRAINT `fk_mantenimiento_equipos1` FOREIGN KEY (`equipos_sn`) REFERENCES `equipos` (`sn`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+/* ALTER TABLE `mantenimiento`
+  ADD CONSTRAINT `fk_mantenimiento_equipos1` FOREIGN KEY (`equipos_sn`) REFERENCES `equipos` (`sn`) ON DELETE NO ACTION ON UPDATE NO ACTION; */
 
 --
 -- Filtros para la tabla `prestamo`
