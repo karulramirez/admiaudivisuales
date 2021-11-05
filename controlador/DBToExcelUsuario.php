@@ -17,7 +17,7 @@
             print_r($mysqli->error);
         }
         // traer los nombre de las columnas
-        $queryColumns = $mysqli->query("SELECT Column_Name FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = '".$dbTable."' AND TABLE_SCHEMA = '".$dbName."';");
+        $queryColumns = $mysqli->query("SELECT Column_Name FROM INFORMATION_SCHEMA.COLUMNS WHERE  Column_Name <> clave AND TABLE_NAME = '".$dbTable."' AND TABLE_SCHEMA = '".$dbName."';");
         if (!$queryColumns) {
             print_r($mysqli->error);
         }
