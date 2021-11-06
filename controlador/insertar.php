@@ -106,6 +106,22 @@ if (count($_POST)==8) {
                     }
 
                     
+                }elseif ($key1=="tel") {
+                    if (preg_match(EXPREG['number'],$value1)) {
+                        $sentencia = "SELECT * FROM ".TABLAS['user']." WHERE tel='".$usuario['tel']."'";
+                        $consulta = new Consultar();
+                        $array = $consulta->getDates($sentencia);
+
+                        if ($array) {
+                            $razon = "El telefono ya se encuentra registrado";
+                            $validar = 2;
+                            break;
+                        }
+
+                    }else {
+                        $razon = "El telefono debe ser numerico";
+                        $validar = 2;
+                    }
                 }
 
                 
