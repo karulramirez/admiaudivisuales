@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<?php include "../DB/v_session.php" ?>
 <?php ob_start();?>
 <!-- Se utiliza para evitar errores a la hora de recargar la pagina tras un cambio -->
 <html lang="en">
@@ -95,10 +96,10 @@
 						<ul class=" navbar-right">
 							<li class="nav-item dropdown open" style="padding-left: 15px;">
 								<a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
-									<img src="images/img.jpg" alt="">John Doe
+									<img src="images/img.jpg" alt=""><?php include "../controlador/mostrar_name.php"?>
 								</a>
 								<div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
-									<a class="dropdown-item" href="login.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
+                <a class="dropdown-item" href="../DB/cerrar_session.php"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
 								</div>
 							</li>
 
@@ -112,7 +113,7 @@
 										<a class="dropdown-item">
 											<span alt="Profile Image" ></span>
 											<span>
-												<span>John Smith</span>
+												<span><?php include "../controlador/mostrar_name.php"?></span>
 												<span class="time">Hace 3 minutos </span>
 											</span>
 											<span class="message">

@@ -31,7 +31,15 @@ if (count($_POST)==3) {
         $array = $validar->getDates($consulta);
 
         if ($array) {
-            echo "BIENVENIDO";
+            @session_start();
+
+            foreach ($array as $fila) {
+                $_SESSION["usuario"]["nombre"]=$fila['nombre'];
+                $_SESSION["usuario"]["idUser"]=$fila['idUsuario'];
+            }
+            
+            header("Location: ../Vista/Prestamo.php");
+            die();
         }else{
             echo "Cuenta no valida";
         }

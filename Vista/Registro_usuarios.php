@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<?php include "../DB/v_session.php" ?>
 <html lang="en">
   <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -94,10 +95,10 @@
 						<ul class=" navbar-right">
 							<li class="nav-item dropdown open" style="padding-left: 15px;">
 								<a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
-									<img src="images/img.jpg" alt="">John Doe
+									<img src="images/img.jpg" alt=""><?php include "../controlador/mostrar_name.php"?>
 								</a>
 								<div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
-									<a class="dropdown-item" href="login.php"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
+								<a class="dropdown-item" href="../DB/cerrar_session.php"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
 								</div>
 							</li>
 
@@ -111,7 +112,7 @@
 										<a class="dropdown-item">
 											<span alt="Profile Image" ></span>
 											<span>
-												<span>John Smith</span>
+												<span><?php include "../controlador/mostrar_name.php"?></span>
 												<span class="time">Hace 3 minutos </span>
 											</span>
 											<span class="message">
@@ -178,10 +179,10 @@
 										<div class="form-group row">
 											<label class="col-form-label col-md-3 col-sm-3 label-align">Rol</label>
 											<div class="col-md-2 col-sm-2 ">
-												<select class="select2_single form-control" tabindex="-1">
+												<select name="tipoUsuario" class="select2_single form-control" tabindex="-1">
 													<option></option>
-													<option value="ES">Estudiante</option>
-													<option value="DO">Docente</option>
+													<option value="Estudiante">Estudiante</option>
+													<option value="Docente">Docente</option>
 												</select>
 											</div>
 										

@@ -31,7 +31,7 @@
       <div class="login_wrapper">
         <div class="animate form login_form">
           <section class="login_content">
-            <form method="POST" action="../Controlador/validarLog.php">
+            <form method="POST" action="login.php">
               <h1>¡Bienvenidos!</h1>
               <div>
                 <input type="text" class="form-control" name="usuario" placeholder="Username" required="" />
@@ -65,7 +65,7 @@
             <?php
 
 								if (isset($_POST['enviar'])) {
-										include "../Controlador/validarLog.php";
+										include "../controlador/validarLog.php";
 								}
 
 						?>

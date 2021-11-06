@@ -15,7 +15,7 @@ $usuario = array("idUsuario"=>0,
 $validar=0;
 $razon = "";
 
-if (count($_POST)==7) {
+if (count($_POST)==8) {
 
 
     foreach ($_POST as $key1 => $value1) {
@@ -135,7 +135,6 @@ if (count($_POST)==7) {
         }
 
         $usuario['idUsuario'] = $idUser;
-        $usuario['tipoUsuario']=$usuario['facultad'];
 
         /*$info = $buscar->getDates("SELECT MAX(codUser)+1 AS Ultimo FROM ".TABLAS['user']);
 

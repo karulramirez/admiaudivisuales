@@ -49,23 +49,32 @@ if (count($_POST)==4) {
                                 $validar = 2;
 
                             }else{
+                                $tipUser = "";
                                 foreach ($array2 as $fila) {
                                     
                                     $equipos['usuario_idUsuario']=$fila['idUsuario'];
+                                    $tipUser = $fila['tipoUsuario'];
                                 }
                                 
                                 $sentencia = "SELECT * FROM ".TABLAS['pres']." WHERE usuario_idUsuario=".$equipos['usuario_idUsuario']."";
                                 $array = $consulta->getDates($sentencia);
+                                $nprestamos = 0;
 
                                 if ($array) {
                                     foreach ($array as $fila) {
                                         
-                                        if (!$fila['fechaDevolucion']) {
+                                        if (!$fila['fechaDevolucion'] and $tipUser=="Estudiante") {
                                             $razon = "El usuario ya tiene un equipo prestado";
                                             $validar = 2;
                                             break;
+                                        }elseif (!$fila['fechaDevolucion'] and $tipUser=="Docente") {
+                                            $nprestamos=$nprestamos+1;
                                         }
-                                        
+                                       
+                                        if ($nprestamos>=3 and $validar!=2) {
+                                            $razon = "El docente ha exedido el numero de equipos prestados";
+                                            $validar = 2;
+                                        }
                                     }
                                 }
                             }
